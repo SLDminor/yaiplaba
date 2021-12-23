@@ -1,0 +1,7 @@
+<% if @result.error %>
+    <h1>Произошла ошибка</h1>
+    <p><%= @result.result %></p>
+<% else %>
+    <p>Было: <%= @result.query %></p>
+    <p>Стало: <%= @result.result %></p>
+<% end %>

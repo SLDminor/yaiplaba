@@ -1,0 +1,14 @@
+<h1>Обратное двоичное число</h1>
+<%= form_with url: proxy_view_url, method: :get do |form| %>
+  <div>
+    <%= form.label :query, 'Число' %>
+    <%= form.text_field :query, id: 'input' %>
+  </div>
+
+  <div>
+    <%= form.label :side, 'Где делать преобразование' %>
+    <%= form.select :side, [["Нигде", "no"], ["На сервере", "server"], ["На клиенте", "client"]], selected: "no" %>
+  </div>
+  
+  <%= form.submit 'Найти' %>
+<% end %>

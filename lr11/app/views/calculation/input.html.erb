@@ -1,0 +1,6 @@
+<h1>Обратное двоичное число</h1>
+<%= form_with url: calculation_view_url, id: 'calculation-form', method: :get, local: true do |form| %>
+  <%= form.label :query, 'Число' %>
+  <%= form.text_field :query, id: 'input' %>
+  <%= form.submit 'Найти' %>
+<% end %>

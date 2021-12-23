@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  query: MyString1
+  result: MyString
+  error: false
+
+two:
+  query: MyString2
+  result: MyString
+  error: false
