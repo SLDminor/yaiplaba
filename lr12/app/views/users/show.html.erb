@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @user.username %>
+</p>
+
+<p>
+  <strong>Password digest:</strong>
+  <%= @user.password_digest %>
+</p>
+
+<p>
+  <strong>Last login at:</strong>
+  <%= @user.last_login_at %>
+</p>
+
+<h1>Посты пользователя</h1>
+
+<% @user.posts.each do |post| %>
+<p>
+  <strong>Title:</strong>
+  <%= post.title %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= post.text %>
+</p>
+
+<hr/>
+<% end %>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
