@@ -1,3 +1,5 @@
+require "#{Rails.root}/lib/solve"
+
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
 
@@ -68,10 +70,6 @@ class PostsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def post_params
-    params.require(:post).permit(:number)
-  end
-
-  def set_result
-    params[:number].to_i.to_s(2).reverse!.to_i(2)
+    Solve.call(params)
   end
 end
