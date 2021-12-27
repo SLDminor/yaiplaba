@@ -1,0 +1,31 @@
+<% if @numbers.nil? %>
+  <h2>Введите положительное n</h2>
+<% else %>
+  <h1> Result table: </h1>
+
+  <table class="table table-bordered w-auto">
+    <tr>
+      <th> Число m: </th>
+      <th> Двоичная форма m: </th>
+      <th> Перевёрнутое </th>
+      <th> Число n: </th>
+    </tr>
+      <tr>
+        <td> <%= @numbers[0] %> </td>
+        <td> <%= @numbers[1] %> </td>
+        <td> <%= @numbers[2] %> </td>
+        <td> <%= @numbers[3] %> </td>
+      </tr>
+  </table>
+
+  <div class="result-text">
+    <br>
+
+    <%= @numbers.size.to_s + ' Rever number(s) in total' %>
+
+    <br> <br>
+
+<% end %>
+
+<%= link_to 'Return to input', rever_enter_form_path %>
+</div>

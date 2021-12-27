@@ -1,35 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
+<%= render @user %>
 
-<p>
-  <strong>Password digest:</strong>
-  <%= @user.password_digest %>
-</p>
+<div>
+  <%= link_to "Edit this user", edit_user_path(@user) %> |
+  <%= link_to "Back to users", users_path %>
 
-<p>
-  <strong>Last login at:</strong>
-  <%= @user.last_login_at %>
-</p>
+  <br> <br>
 
-<h1>Посты пользователя</h1>
-
-<% @user.posts.each do |post| %>
-<p>
-  <strong>Title:</strong>
-  <%= post.title %>
-</p>
-
-<p>
-  <strong>Text:</strong>
-  <%= post.text %>
-</p>
-
-<hr/>
-<% end %>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  <% if @current_user.name == @user.name %>
+    <%= button_to "Destroy this user", user_path(@user), method: :delete, class: 'btn btn-outline-danger' %>
+  <% end %>
+</div>

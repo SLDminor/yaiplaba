@@ -1,4 +1,8 @@
+# frozen_string_literal: true
+
+# application controller
 class ApplicationController < ActionController::Base
+  add_flash_types :success
   include SessionHelper
 
   before_action :require_login
@@ -6,9 +10,9 @@ class ApplicationController < ActionController::Base
   private
 
   def require_login
-    unless signed_in?
-      flash[:danger] = 'Требуется логин'
-      redirect_to session_login_url
-    end
+    return if signed_in?
+
+    flash[:warning] = 'Login required'
+    redirect_to session_login_url
   end
 end

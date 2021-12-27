@@ -1,15 +1,23 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>LR12</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<html lang="en">
+<head>
+  <title>Lab12</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+  <style>
+      body {
+          margin: 20px;
+      }
+      table {
+          text-align: center;
+      }
+  </style>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+<%= yield %>
+</body>
 </html>

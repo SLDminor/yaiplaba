@@ -1,10 +1,11 @@
-class User < ApplicationRecord
-  has_many :posts
+# frozen_string_literal: true
 
+# user activerecord class
+class User < ApplicationRecord
   has_secure_password
 
-  def update_last_login_at
-    self.last_login_at = DateTime.now
+  def update_last_login
+    self.last_login = DateTime.now
     save
   end
 end

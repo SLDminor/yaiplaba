@@ -1,7 +1,37 @@
-<%= form_with url: session_create_url, method: :post, local: true do |f| %>
-    <%= f.text_field :login, required: true, label: 'Логин' %>
-    <%= f.password_field :password, required: true, label: 'Пароль' %>
-    <%= f.submit 'Войти' %>
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>" role="alert" style="width: fit-content">
+    <%= value %>
+  </div>
+  <br>
 <% end %>
 
-<%= link_to 'Зарегистрироваться', new_user_path %>
+<h1>Welcome page</h1>
+
+<h3>Please login to get access to rever calculations</h3>
+
+<% if signed_in? %>
+  <h4 class="alert alert-info" style="width: fit-content">You are logged in as <i><%= @current_user.name %></i></h4>
+<% end %>
+
+<%= form_with url: session_create_url do |form| %>
+  <%= form.label :user, "User" %> <br>
+  <%= form.text_field :user, placeholder: 'user', required: true %> <br> <br>
+  <%= form.label :password %> <br>
+  <%= form.password_field :password, placeholder: '1234', required: true %> <br> <br>
+  <%= form.submit 'Log in', class:'btn btn-outline-primary'%>
+<% end %>
+
+<br>
+
+<% if !signed_in? %>
+  <%= link_to 'Sign in', new_user_path, class: 'btn btn-outline-success' %>
+  <br>
+<% else %>
+  <%= link_to 'Log out', session_logout_path, class:'btn btn-outline-warning' %>
+  <br> <br>
+  <h5><%= link_to 'Back to calculations', rever_enter_form_path %></h5>
+<% end %>
+
+<br>
+
+<h5><%= link_to 'Known users list', users_path %></h5>

@@ -1,7 +1,7 @@
 module SessionHelper
   def sign_in(user)
     cookies.signed[:user_id] = { value: user.id, expires: 20.days }
-    user.update_last_login_at
+    user.update_last_login
     self.current_user = user
   end
 
@@ -19,6 +19,6 @@ module SessionHelper
   end
 
   def current_user
-    @current_user ||= User.find_by(id: cookies.signed[:user_id])
+    @current_user ||= User.find_by_id cookies.signed[:user_id]
   end
 end

@@ -1,0 +1,11 @@
+<h1> Input page</h1>
+
+<%= form_with url: rever_result_table_path, method: :get do |form| %>
+  <%= form.label :number, 'Enter n' %> <br>
+  <%= form.number_field :number, placeholder: "3", required: true, class: "in-form" %> <br> <br>
+  <%= form.submit 'Calculate', class: 'btn btn-primary' %>
+<% end %>
+
+<br>
+
+<%= link_to 'Back to login page', session_login_path %>
